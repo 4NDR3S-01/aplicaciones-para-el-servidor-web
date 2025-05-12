@@ -3,7 +3,7 @@ import 'reflect-metadata'
 
 export const initDataB = async() => {
     try {
-        AppDataSource.initialize()
+        await AppDataSource.initialize()
         console.log ("Base de datos iniciada")  
         return AppDataSource
     } catch (error) {
