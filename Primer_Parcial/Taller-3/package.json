@@ -1,0 +1,44 @@
+{
+  "name": "taller-3-n-capas",
+  "version": "1.0.0",
+  "description": "Arquitectura N-Capas aplicada a entidades de proyecto autonomo",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "tsnd --respawn --clear src/app.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "node dist/app.js",
+    "typeorm:migration:create": "typeorm migration:create",
+    "typeorm:migration:run": "typeorm migration:run -d src/data/typeorm/typeorm.config.ts",
+    "typeorm:migration:revert": "typeorm migration:revert -d src/data/typeorm/typeorm.config.ts",
+    "sequelize:init": "sequelize init",
+    "sequelize:migration:create": "sequelize migration:create --name",
+    "sequelize:migrate": "sequelize db:migrate",
+    "sequelize:seed": "sequelize db:seed:all"
+  },
+  "keywords": ["typescript", "express", "clean-architecture", "n-layers", "typeorm", "sequelize"],
+  "author": "Andrés",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/compression": "^1.7.3",
+    "@types/express": "^4.17.17",
+    "@types/node": "^22.15.29",
+    "@types/sequelize": "^4.28.14",
+    "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1",
+    "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1",
+    "env-var": "^7.4.1",
+    "express": "^4.18.2",
+    "pg": "^8.16.0",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.35.2",
+    "sqlite3": "^5.1.6",
+    "typeorm": "^0.3.24"
+  }
+}

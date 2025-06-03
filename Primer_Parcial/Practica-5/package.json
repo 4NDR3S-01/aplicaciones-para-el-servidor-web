@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "dev": "tsnd --respawn --clear src/app.ts",
+    "build": "rimraf ./dist && tsc && npm run prisma:migrate:prod",
+    "start": "node dist/app.js",
+    "prisma:migrate:prod": "prisma migrate deploy"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.3",
+    "@types/express": "^4.17.17",
+    "@types/node": "^22.15.29",
+    "nodemon": "^3.1.10",
+    "prisma": "^5.2.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1",
+    "env-var": "^7.4.1",
+    "express": "^4.18.2",
+    "pg": "^8.16.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.24"
+  }
+}

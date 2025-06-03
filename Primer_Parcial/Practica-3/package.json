@@ -1,24 +1,21 @@
 {
-  "name": "practica-3",
-  "version": "1.0.0",
-  "description": "Practica 3 con TypeORM",
-  "main": "src/app.ts",
+
+
   "scripts": {
-    "dev": "ts-node src/app.ts",
-    "start": "ts-node src/app.ts"
+    "dev": "tsnd --respawn --clear src/app.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/app.js"
   },
-  "author": "william",
-  "license": "ISC",
-  "keywords": [],
-  "dependencies": {
-    "reflect-metadata": "^0.2.2",
-    "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.23"
-  },
+
+
   "devDependencies": {
-    "@tsconfig/node16": "^16.1.3",
-    "@types/node": "^22.15.14",
+    "@types/node": "^22.15.29",
+    "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

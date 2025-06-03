@@ -3,8 +3,10 @@ node_modules
 #python
 __pycache__/
 
-
 venv
 
 # env
 envv
+
+# Build
+dist/
