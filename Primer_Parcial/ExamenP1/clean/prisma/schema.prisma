@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model todo {
+  id          Int       @id @default(autoincrement())
+  text        String    @db.VarChar
+  completedAt DateTime? @db.Timestamp()
+}
+
+model flashcard {
+  id          Int       @id @default(autoincrement())
+  question    String    @db.VarChar
+  answer      String    @db.Text
+  categories  String[]
+  difficulty  Int       @default(1) @db.SmallInt
+  createdAt   DateTime  @default(now()) @db.Timestamp()
+  updatedAt   DateTime  @updatedAt @db.Timestamp()
+  
+  // Relación con las sesiones de estudio
+  studySessions StudySession[]
+  
+  @@map("flashcards")
+}
+
+model StudySession {
+  id          Int       @id @default(autoincrement())
+  flashcardId Int
+  category    String    @db.VarChar
+  response    String    @db.VarChar // 'easy', 'medium', 'hard', 'again'
+  timeSpent   Int       // tiempo en segundos
+  studiedAt   DateTime  @default(now()) @db.Timestamp()
+  
+  // Relación con flashcard
+  flashcard   Flashcard @relation(fields: [flashcardId], references: [id], onDelete: Cascade)
+  
+  @@map("study_sessions")
+}

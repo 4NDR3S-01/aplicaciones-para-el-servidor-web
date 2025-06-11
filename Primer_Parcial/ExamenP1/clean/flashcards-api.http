@@ -1,0 +1,77 @@
+### Variables
+@baseUrl = http://localhost:3000/api
+@flashcardId = 1
+
+### Obtener todas las flashcards
+GET {{baseUrl}}/flashcards
+
+### Obtener flashcards por categoría
+GET {{baseUrl}}/flashcards?category=programación
+
+### Obtener todas las categorías
+GET {{baseUrl}}/flashcards/categories
+
+### Obtener flashcard por ID
+GET {{baseUrl}}/flashcards/{{flashcardId}}
+
+### Crear nueva flashcard
+POST {{baseUrl}}/flashcards
+Content-Type: application/json
+
+{
+  "question": "¿Qué es Node.js?",
+  "answer": "Node.js es un entorno de ejecución de JavaScript construido sobre el motor V8 de Chrome que permite ejecutar JavaScript en el servidor.",
+  "categories": ["javascript", "backend", "programación"],
+  "difficulty": 2
+}
+
+### Actualizar flashcard
+PUT {{baseUrl}}/flashcards/{{flashcardId}}
+Content-Type: application/json
+
+{
+  "question": "¿Qué es TypeScript? (Actualizada)",
+  "answer": "TypeScript es un lenguaje de programación desarrollado por Microsoft que añade tipado estático opcional a JavaScript, compilándose a JavaScript plano.",
+  "categories": ["programación", "typescript", "javascript", "microsoft"],
+  "difficulty": 3
+}
+
+### Actualizar parcialmente una flashcard (solo dificultad)
+PUT {{baseUrl}}/flashcards/2
+Content-Type: application/json
+
+{
+  "difficulty": 4
+}
+
+### Eliminar flashcard
+DELETE {{baseUrl}}/flashcards/{{flashcardId}}
+
+### Pruebas de validación - Crear flashcard sin pregunta (debe fallar)
+POST {{baseUrl}}/flashcards
+Content-Type: application/json
+
+{
+  "answer": "Esta es una respuesta sin pregunta",
+  "categories": ["test"]
+}
+
+### Pruebas de validación - Crear flashcard sin categorías (debe fallar)
+POST {{baseUrl}}/flashcards
+Content-Type: application/json
+
+{
+  "question": "¿Pregunta sin categorías?",
+  "answer": "Esta flashcard no tiene categorías"
+}
+
+### Pruebas de validación - Crear flashcard con dificultad inválida (debe fallar)
+POST {{baseUrl}}/flashcards
+Content-Type: application/json
+
+{
+  "question": "¿Pregunta con dificultad inválida?",
+  "answer": "Esta flashcard tiene dificultad inválida",
+  "categories": ["test"],
+  "difficulty": 10
+}
