@@ -105,15 +105,15 @@ src/
 
 ## 🧪 Pruebas de la API
 
-### Usando Postman
-
-#### 1. Endpoints
+#### Endpoints
 ![Endpoints](images/image.png)
 
-#### 2. Ejecutamos POST en feedbacks
+### Usando Postman
+
+#### Ejecutamos POST en feedbacks
 ![ejecuta post feedbacks](images/image_postman1.png)
 
-#### 3. Ejecutamos GET en feedbacks
+#### Ejecutamos GET en feedbacks
 ![ejecuta get feedbacks](images/image_postman2.png)
 
 ### Usando cURL
