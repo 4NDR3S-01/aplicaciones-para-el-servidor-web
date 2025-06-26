@@ -107,31 +107,14 @@ src/
 
 ### Usando Postman
 
-#### 1. Importar la Colección
-![Importar Colección](images/image.png)
+#### 1. Endpoints
+![Endpoints](images/image.png)
 
-Para importar la colección de Postman:
-1. Abre Postman
-2. Haz clic en **"Import"**
-3. Selecciona el archivo `nestjs-api.postman_collection.json`
-4. Haz clic en **"Import"**
+#### 2. Ejecutamos POST en feedbacks
+![ejecuta post feedbacks](images/image_postman1.png)
 
-#### 2. Ejecutar Peticiones
-![Ejecutar Peticiones](images/image_postman1.png)
-
-Una vez importada la colección:
-1. Expande la carpeta **"NestJS API - Taller 1"**
-2. Selecciona cualquier petición (ej: "Crear Feedback")
-3. Verifica que el servidor esté ejecutándose en `http://localhost:3000`
-4. Haz clic en **"Send"**
-
-#### 3. Ver Respuestas
-![Ver Respuestas](images/image_postman2.png)
-
-Las respuestas se mostrarán en el panel inferior:
-- **Status**: Código de respuesta HTTP (200, 201, 400, etc.)
-- **Body**: Datos de respuesta en formato JSON
-- **Headers**: Cabeceras de la respuesta
+#### 3. Ejecutamos GET en feedbacks
+![ejecuta get feedbacks](images/image_postman2.png)
 
 ### Usando cURL
 ```bash
