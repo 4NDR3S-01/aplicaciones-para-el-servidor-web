@@ -1,98 +1,243 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Taller 1: API REST con NestJS, TypeORM y SQLite
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 📋 Descripción
+Este proyecto implementa una API REST completamente funcional utilizando NestJS, estableciendo una conexión a una base de datos SQLite mediante TypeORM. Se implementa la arquitectura de software por capas para tres entidades distintas: Feedbacks, Grabaciones y TipoMetrica.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🏗️ Arquitectura Implementada
 
-## Description
+### Capas de la Aplicación
+1. **Presentación**: Controladores que manejan las peticiones HTTP
+2. **Lógica de Negocio**: Servicios que contienen la lógica de la aplicación
+3. **Acceso a Datos**: TypeORM para la persistencia en SQLite
+4. **Entidades**: Modelos de datos con decoradores de TypeORM
+5. **DTOs**: Objetos de transferencia de datos con validaciones
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Entidades Implementadas
+- **Feedbacks**: Sistema de retroalimentación con calificaciones
+- **Grabaciones**: Gestión de archivos de audio/video
+- **TipoMetrica**: Tipos de métricas para análisis
 
-## Project setup
+## 🚀 Instalación y Configuración
 
+### Prerrequisitos
+- Node.js (versión LTS)
+- NPM o Yarn
+- NestJS CLI: `npm i -g @nestjs/cli`
+
+### Pasos de Instalación
+
+1. **Clonar o navegar al proyecto**
 ```bash
-$ npm install
+cd Segundo_Parcial/taller-1
 ```
 
-## Compile and run the project
-
+2. **Instalar dependencias**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
-
+3. **Ejecutar el proyecto**
 ```bash
-# unit tests
-$ npm run test
+# Modo desarrollo (con hot reload)
+npm run start:dev
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# Modo producción
+npm run start:prod
 ```
 
-## Deployment
+## 📁 Estructura del Proyecto
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+```
+src/
+├── app.module.ts                 # Módulo principal con configuración de TypeORM
+├── main.ts                       # Punto de entrada de la aplicación
+├── feedbacks/                    # Módulo de Feedbacks
+│   ├── dto/
+│   │   ├── create-feedback.dto.ts
+│   │   └── update-feedback.dto.ts
+│   ├── entities/
+│   │   └── feedback.entity.ts
+│   ├── feedbacks.controller.ts
+│   ├── feedbacks.service.ts
+│   └── feedbacks.module.ts
+├── grabaciones/                  # Módulo de Grabaciones
+│   ├── dto/
+│   │   ├── create-grabacion.dto.ts
+│   │   └── update-grabacion.dto.ts
+│   ├── entities/
+│   │   └── grabacion.entity.ts
+│   ├── grabaciones.controller.ts
+│   ├── grabaciones.service.ts
+│   └── grabaciones.module.ts
+└── tipo-metrica/                 # Módulo de TipoMetrica
+    ├── dto/
+    │   ├── create-tipo-metrica.dto.ts
+    │   └── update-tipo-metrica.dto.ts
+    ├── entities/
+    │   └── tipo-metrica.entity.ts
+    ├── tipo-metrica.controller.ts
+    ├── tipo-metrica.service.ts
+    └── tipo-metrica.module.ts
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🔗 Endpoints Disponibles
 
-## Resources
+### Feedbacks
+- `POST /feedbacks` - Crear feedback
+- `GET /feedbacks` - Obtener todos los feedbacks
+- `GET /feedbacks/:id` - Obtener feedback por ID
+- `PATCH /feedbacks/:id` - Actualizar feedback
+- `DELETE /feedbacks/:id` - Eliminar feedback
 
-Check out a few resources that may come in handy when working with NestJS:
+### Grabaciones
+- `POST /grabaciones` - Crear grabación
+- `GET /grabaciones` - Obtener todas las grabaciones
+- `GET /grabaciones/:id` - Obtener grabación por ID
+- `PATCH /grabaciones/:id` - Actualizar grabación
+- `DELETE /grabaciones/:id` - Eliminar grabación
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### TipoMetrica
+- `POST /tipo-metrica` - Crear tipo de métrica
+- `GET /tipo-metrica` - Obtener todos los tipos de métrica
+- `GET /tipo-metrica/:id` - Obtener tipo de métrica por ID
+- `PATCH /tipo-metrica/:id` - Actualizar tipo de métrica
+- `DELETE /tipo-metrica/:id` - Eliminar tipo de métrica
 
-## Support
+## 🧪 Pruebas de la API
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Usando Postman
 
-## Stay in touch
+#### 1. Importar la Colección
+![Importar Colección](images/image.png)
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Para importar la colección de Postman:
+1. Abre Postman
+2. Haz clic en **"Import"**
+3. Selecciona el archivo `nestjs-api.postman_collection.json`
+4. Haz clic en **"Import"**
 
-## License
+#### 2. Ejecutar Peticiones
+![Ejecutar Peticiones](images/image_postman1.png)
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Una vez importada la colección:
+1. Expande la carpeta **"NestJS API - Taller 1"**
+2. Selecciona cualquier petición (ej: "Crear Feedback")
+3. Verifica que el servidor esté ejecutándose en `http://localhost:3000`
+4. Haz clic en **"Send"**
+
+#### 3. Ver Respuestas
+![Ver Respuestas](images/image_postman2.png)
+
+Las respuestas se mostrarán en el panel inferior:
+- **Status**: Código de respuesta HTTP (200, 201, 400, etc.)
+- **Body**: Datos de respuesta en formato JSON
+- **Headers**: Cabeceras de la respuesta
+
+### Usando cURL
+```bash
+# Crear un feedback
+curl -X POST http://localhost:3000/feedbacks \
+  -H "Content-Type: application/json" \
+  -d '{
+    "titulo": "Feedback de prueba",
+    "descripcion": "Este es un feedback de prueba",
+    "calificacion": 4,
+    "autor": "Usuario Test"
+  }'
+
+# Obtener todos los feedbacks
+curl -X GET http://localhost:3000/feedbacks
+```
+
+### Usando Thunder Client (VS Code)
+1. Instala la extensión Thunder Client en VS Code
+2. Importa la colección de Postman
+3. Ejecuta las peticiones directamente desde el editor
+
+## 🗄️ Base de Datos
+
+### Configuración
+- **Tipo**: SQLite
+- **Archivo**: `db.sqlite` (se crea automáticamente)
+- **Sincronización**: Automática en desarrollo
+
+### Tablas Creadas
+- `feedbacks`: Almacena los feedbacks del sistema
+- `grabaciones`: Almacena información de grabaciones
+- `tipo_metrica`: Almacena tipos de métricas
+
+## ✅ Validaciones Implementadas
+
+### Feedbacks
+- `titulo`: String, longitud 1-255 caracteres
+- `descripcion`: String obligatorio
+- `calificacion`: Número entre 0-5
+- `autor`: String, longitud 1-100 caracteres
+
+### Grabaciones
+- `titulo`: String, longitud 1-255 caracteres
+- `descripcion`: String obligatorio
+- `archivo`: String, longitud 1-255 caracteres
+- `duracion`: Número mayor o igual a 0
+- `formato`: String opcional, longitud 1-50 caracteres
+
+### TipoMetrica
+- `nombre`: String, longitud 1-100 caracteres
+- `descripcion`: String obligatorio
+- `unidad`: String, longitud 1-50 caracteres
+- `activo`: Boolean opcional
+
+## ⚡ Comandos Útiles
+
+```bash
+# Desarrollo
+npm run start:dev          # Ejecutar con hot reload
+npm run start:debug        # Ejecutar en modo debug
+
+# Producción
+npm run build              # Compilar el proyecto
+npm run start:prod         # Ejecutar en producción
+
+# Testing
+npm run test               # Ejecutar tests unitarios
+npm run test:e2e           # Ejecutar tests end-to-end
+npm run test:cov           # Ejecutar tests con cobertura
+
+# Linting y Formateo
+npm run lint               # Ejecutar ESLint
+npm run format             # Formatear código con Prettier
+```
+
+## ✨ Características Implementadas
+
+✅ **Arquitectura por Capas**: Separación clara entre presentación, lógica de negocio y acceso a datos
+
+✅ **TypeORM Integration**: Configuración completa con SQLite
+
+✅ **Validaciones**: DTOs con decoradores de class-validator
+
+✅ **CRUD Completo**: Operaciones Create, Read, Update, Delete para todas las entidades
+
+✅ **Manejo de Errores**: Excepciones personalizadas y códigos de estado HTTP apropiados
+
+✅ **Documentación**: Documentación completa de la API
+
+✅ **Colección de Postman**: Archivo listo para importar y probar
+
+## 🛠️ Tecnologías Utilizadas
+
+- **NestJS**: Framework para aplicaciones Node.js
+- **TypeORM**: ORM para TypeScript y JavaScript
+- **SQLite**: Base de datos ligera
+- **class-validator**: Validaciones de datos
+- **class-transformer**: Transformación de objetos
+- **@nestjs/mapped-types**: Utilidades para DTOs
+
+
+
+## 📚 Recursos Adicionales
+
+- **Documentación Completa**: `API_DOCUMENTATION.md`
+- **Colección Postman**: `nestjs-api.postman_collection.json`
+- **Documentación oficial de NestJS**: https://docs.nestjs.com/
+- **Documentación de TypeORM**: https://typeorm.io/
