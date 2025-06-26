@@ -1,0 +1,288 @@
+{
+  "info": {
+    "name": "NestJS API - Taller 1",
+    "description": "Colección de endpoints para la API REST construida con NestJS, TypeORM y SQLite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Feedbacks",
+      "item": [
+        {
+          "name": "Crear Feedback",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Excelente aplicación\",\n  \"descripcion\": \"La aplicación funciona perfectamente y es muy intuitiva\",\n  \"calificacion\": 5,\n  \"autor\": \"Juan Pérez\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/feedbacks",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["feedbacks"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Todos los Feedbacks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/feedbacks",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["feedbacks"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Feedback por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/feedbacks/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["feedbacks", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Feedback",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"calificacion\": 4,\n  \"descripcion\": \"Muy buena aplicación, pero podría mejorar en algunos aspectos\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/feedbacks/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["feedbacks", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Feedback",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/feedbacks/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["feedbacks", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grabaciones",
+      "item": [
+        {
+          "name": "Crear Grabación",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Entrevista con el cliente\",\n  \"descripcion\": \"Grabación de la reunión inicial con el cliente para definir requerimientos\",\n  \"archivo\": \"entrevista_cliente_001.mp3\",\n  \"duracion\": 1800,\n  \"formato\": \"mp3\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/grabaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["grabaciones"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Todas las Grabaciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/grabaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["grabaciones"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Grabación por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/grabaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["grabaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Grabación",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Entrevista con el cliente - Actualizada\",\n  \"duracion\": 2000\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/grabaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["grabaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Grabación",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/grabaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["grabaciones", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "TipoMetrica",
+      "item": [
+        {
+          "name": "Crear Tipo de Métrica",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tiempo de respuesta\",\n  \"descripcion\": \"Métrica que mide el tiempo de respuesta del sistema en milisegundos\",\n  \"unidad\": \"ms\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/tipo-metrica",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tipo-metrica"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Todos los Tipos de Métrica",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tipo-metrica",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tipo-metrica"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Tipo de Métrica por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tipo-metrica/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tipo-metrica", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Tipo de Métrica",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"Métrica actualizada que mide el tiempo de respuesta del sistema en milisegundos\",\n  \"activo\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/tipo-metrica/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tipo-metrica", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Tipo de Métrica",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tipo-metrica/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tipo-metrica", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+} 
