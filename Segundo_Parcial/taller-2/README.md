@@ -8,6 +8,12 @@ API GraphQL para gestionar grabaciones, feedbacks y tipos de métrica, siguiendo
 - **Feedbacks:** id, comentario, calificación, grabacionId (relación).
 - **TipoMetrica:** id, nombre, descripción.
 
+## Configurar archivo .env
+```bash
+DATABASE= 'taller-2'
+```
+
+
 ## Instalación y ejecución
 
 ```bash
