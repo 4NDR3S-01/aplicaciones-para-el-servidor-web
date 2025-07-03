@@ -1,0 +1,84 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Feedback {
+  id: Int!
+  comentario: String!
+  calificacion: Int!
+}
+
+type Grabacione {
+  id: Int!
+  url: String!
+  fecha: DateTime!
+  descripcion: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type TipoMetrica {
+  id: Int!
+  nombre: String!
+  descripcion: String!
+}
+
+type Query {
+  grabaciones: [Grabacione!]!
+  grabacione(id: Int!): Grabacione!
+  feedbacks: [Feedback!]!
+  feedback(id: Int!): Feedback!
+  tipoMetrica(id: Int!): TipoMetrica!
+}
+
+type Mutation {
+  createGrabacione(createGrabacioneInput: CreateGrabacioneInput!): Grabacione!
+  updateGrabacione(updateGrabacioneInput: UpdateGrabacioneInput!): Grabacione!
+  removeGrabacione(id: Int!): Grabacione!
+  createFeedback(createFeedbackInput: CreateFeedbackInput!): Feedback!
+  updateFeedback(updateFeedbackInput: UpdateFeedbackInput!): Feedback!
+  removeFeedback(id: Int!): Feedback!
+  createTipoMetrica(createTipoMetricaInput: CreateTipoMetricaInput!): TipoMetrica!
+  updateTipoMetrica(updateTipoMetricaInput: UpdateTipoMetricaInput!): TipoMetrica!
+  removeTipoMetrica(id: Int!): TipoMetrica!
+}
+
+input CreateGrabacioneInput {
+  url: String!
+  fecha: String!
+  descripcion: String!
+}
+
+input UpdateGrabacioneInput {
+  url: String
+  fecha: String
+  descripcion: String
+  id: Int!
+}
+
+input CreateFeedbackInput {
+  comentario: String!
+  calificacion: Int!
+  grabacionId: Int!
+}
+
+input UpdateFeedbackInput {
+  comentario: String
+  calificacion: Int
+  grabacionId: Int
+  id: Int!
+}
+
+input CreateTipoMetricaInput {
+  nombre: String!
+  descripcion: String!
+}
+
+input UpdateTipoMetricaInput {
+  nombre: String
+  descripcion: String
+  id: Int!
+}
