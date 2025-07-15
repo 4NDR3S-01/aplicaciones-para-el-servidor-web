@@ -1,0 +1,176 @@
+{
+  "info": {
+    "_postman_id": "b1e1c1d2-3f4a-5678-9abc-def012345678",
+    "name": "NestJS WebSocket CRUD Taller 3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección para probar el CRUD en tiempo real de calificaciones, parametros_ideales y criterios_evaluacion usando WebSocket en NestJS."
+  },
+  "item": [
+    {
+      "name": "Calificaciones - Crear",
+      "event": [],
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"createCalificacione\",\n  \"data\": {\n    \"alumno\": \"Juan\",\n    \"materia\": \"Matemáticas\",\n    \"calificacion\": 9.5,\n    \"observaciones\": \"Excelente\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Calificaciones - Listar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"findAllCalificaciones\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Calificaciones - Buscar por ID",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"findOneCalificacione\",\n  \"data\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Calificaciones - Actualizar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"updateCalificacione\",\n  \"data\": {\n    \"id\": 1,\n    \"alumno\": \"Juan\",\n    \"materia\": \"Matemáticas\",\n    \"calificacion\": 10,\n    \"observaciones\": \"Actualizado\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Calificaciones - Eliminar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"removeCalificacione\",\n  \"data\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Parametros Ideales - Crear",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"createParametrosIdeale\",\n  \"data\": {\n    \"parametro\": \"Temperatura\",\n    \"valor_ideal\": 22.5,\n    \"unidad\": \"°C\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Parametros Ideales - Listar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"findAllParametrosIdeales\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Parametros Ideales - Buscar por ID",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"findOneParametrosIdeale\",\n  \"data\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Parametros Ideales - Actualizar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"updateParametrosIdeale\",\n  \"data\": {\n    \"id\": 1,\n    \"parametro\": \"Temperatura\",\n    \"valor_ideal\": 23,\n    \"unidad\": \"°C\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Parametros Ideales - Eliminar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"removeParametrosIdeale\",\n  \"data\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Criterios Evaluacion - Crear",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"createCriteriosEvaluacion\",\n  \"data\": {\n    \"criterio\": \"Participación\",\n    \"descripcion\": \"Participación en clase\",\n    \"peso\": 0.2\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Criterios Evaluacion - Listar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"findAllCriteriosEvaluacion\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Criterios Evaluacion - Buscar por ID",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"findOneCriteriosEvaluacion\",\n  \"data\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Criterios Evaluacion - Actualizar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"updateCriteriosEvaluacion\",\n  \"data\": {\n    \"id\": 1,\n    \"criterio\": \"Participación\",\n    \"descripcion\": \"Participación activa en clase\",\n    \"peso\": 0.25\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Criterios Evaluacion - Eliminar",
+      "request": {
+        "url": "ws://localhost:3000",
+        "method": "WS",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"removeCriteriosEvaluacion\",\n  \"data\": 1\n}"
+        }
+      }
+    }
+  ]
+} 
